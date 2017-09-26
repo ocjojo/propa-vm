@@ -36,8 +36,11 @@ yum_package_check_list=(
   # Req'd for i18n tools
   gettext
 
-  #propa stuff
+  #haskell
   haskell-platform
+  #prolog
+  autoconf
+
 
   # to build e.g. node modules
   gcc-c++
@@ -119,6 +122,16 @@ package_install() {
   fi
 }
 
+prolog_install() {
+  echo "installing prolog.."
+
+  git clone https://github.com/SWI-Prolog/swipl-devel.git
+  cd swipl-devel
+  ./prepare --yes
+  cp -p build.templ build
+  ./build
+}
+
 
 
 ###############
@@ -131,6 +144,7 @@ echo " "
 echo "Main packages check and install."
 repo_install
 package_install
+prolog_install
 
 network_check
 echo " "
