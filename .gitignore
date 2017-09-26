@@ -1,0 +1,12 @@
+
+.DS_Store
+.vagrant
+
+/code/*
+!/code/.gitkeep
+/log/*
+!/log/.gitkeep
+
+propa.sublime-workspace
+
+
